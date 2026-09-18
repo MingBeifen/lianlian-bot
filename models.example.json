@@ -1,0 +1,104 @@
+{
+  "_说明": "复制成 models.json 后按本机路径修改；llama-server 的路径由 run.bat 调 sync_models.py 自动写进 start_llama.bat",
+  "llm": {
+    "base_url": "http://127.0.0.1:8080/v1",
+    "api_key": "none",
+    "model": "lianlian",
+    "system_prompt_file": "config/persona.txt",
+    "max_tokens": 150,
+    "temperature": 0.7,
+    "top_p": -1.0,
+    "history_turns": 10,
+    "keep_alive": "30m",
+    "timeout": 120.0
+  },
+  "process": {
+    "llama_exe": "D:\\path\\to\\llamacpp-cu124",
+    "gguf": "D:\\models\\your-llm.gguf",
+    "lora": "",
+    "port": 8080
+  },
+  "asr": {
+    "backend": "sensevoice",
+    "model": "iic/SenseVoiceSmall",
+    "device": "cuda:0",
+    "language": "zh",
+    "api_base": "https://api.openai.com/v1",
+    "api_key": "",
+    "api_model": "whisper-1"
+  },
+  "tts": {
+    "backend": "gsv",
+    "lang": "z",
+    "voice": "zf_021",
+    "speed": 1.1,
+    "rate": "+8%",
+    "en_mode": "ipa",
+    "device": "cuda:0",
+    "repo": "D:\\DeepSeek-Harness\\kokoro-zh-v11",
+    "sample_rate": 24000,
+    "trim_silence": true,
+    "strip_brackets": true,
+    "gsv": {
+      "api_url": "http://127.0.0.1:9880",
+      "ref_audio": "D:\\models\\ref.wav",
+      "prompt_text": "哥哥，你今天怎么这么晚才回来呀，我等你好久了，饭都凉了呢。",
+      "prompt_lang": "zh",
+      "text_lang": "zh",
+      "sample_rate": 32000,
+      "timeout": 120.0
+    }
+  },
+  "vad": {
+    "backend": "auto",
+    "threshold": 0.45,
+    "energy_ratio": 2.2,
+    "min_rms": 0.006,
+    "auto_calibrate": true,
+    "gate": false,
+    "silence_ms": 650,
+    "min_speech_ms": 300,
+    "max_utterance_s": 12.0,
+    "preroll_ms": 300,
+    "input_gain": 1.0
+  },
+  "memory": {
+    "enable": true,
+    "db": "",
+    "top_k": 8,
+    "auto_write": false,
+    "overlap": 0.45,
+    "embed_model": "D:\\models\\bge-base-zh",
+    "debug": 1
+  },
+  "live2d": {
+    "enable": true,
+    "backend": "native",
+    "native_python": "..\\live2d-venv\\Scripts\\python.exe",
+    "native_model": "D:\\models\\Live2D\\your-model\\model.model3.json",
+    "port": 9890,
+    "fps": 60,
+    "mouth_gain": 6.5,
+    "arm": "auto",
+    "idle_motion": true,
+    "motion_gap_min": 10.0,
+    "motion_gap_max": 25.0,
+    "react_motion": true,
+    "action_motion": true,
+    "action_map": "",
+    "idle_exit": 15,
+    "size": "480x700",
+    "position": "br",
+    "margin": 20,
+    "topmost": true,
+    "borderless": true,
+    "hide_taskbar": true,
+    "click_through": false,
+    "hotkeys": true
+  },
+  "webui": {
+    "enable": true,
+    "host": "127.0.0.1",
+    "port": 8765
+  }
+}

@@ -1,0 +1,21 @@
+# 恋恋 voicebot 应用环境（Windows / Python 3.12）
+# torch 默认这样装（NVIDIA 50 系需要 cu128；CPU 也能跑但慢）：
+#   pip install torch==2.11.0 torchaudio==2.11.0 --index-url https://download.pytorch.org/whl/cu128
+# 其余：
+openai==3.14.1
+numpy==2.5.3
+torch==2.11.0
+torchaudio==2.11.0
+funasr==1.4.15
+modelscope==1.40.1
+transformers==5.17.0
+huggingface-hub==1.31.0
+soundfile==0.14.0
+sounddevice==0.5.6
+aiohttp==3.14.3
+websockets==16.1.1
+edge-tts==7.2.8
+kokoro==0.9.4
+misaki==0.9.4
+jieba==0.42.1
+Pillow==12.3.0

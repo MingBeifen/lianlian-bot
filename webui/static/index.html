@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>恋恋 · 控制台</title>
+<link rel="stylesheet" href="/static/style.css?v=7">
+</head>
+<body>
+<header>
+  <div class="brand">恋恋<span>控制台</span></div>
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="chat">对话</button>
+    <button class="tab-btn" data-tab="memory">记忆</button>
+    <button class="tab-btn" data-tab="live2d">Live2D</button>
+  </nav>
+  <div class="status" id="status"><i></i>连接中…</div>
+</header>
+
+<main>
+  <!-- ============ 对话 ============ -->
+  <section class="tab-page active" id="tab-chat">
+    <div class="chat-wrap">
+      <div class="chat-head">
+        <div class="pill" id="chat-state">空闲</div>
+        <div class="chat-actions">
+          <label class="switch" title="本机麦克风静音（用网页说话时建议打开）">
+            <input type="checkbox" id="mic-mute"> 本机麦克风静音
+          </label>
+          <button class="btn ghost sm" id="btn-interrupt">打断她</button>
+          <button class="btn ghost sm" id="btn-clear">清屏</button>
+        </div>
+      </div>
+      <div class="messages" id="messages">
+        <div class="msg sys">和她说话吧：打字回车发送，或点下面的麦克风用语音输入。</div>
+      </div>
+      <div class="composer">
+        <button class="btn mic" id="mic-btn" title="按住说话/点击开始录音">🎙</button>
+        <textarea id="chat-input" rows="1" placeholder="输入消息，Enter 发送，Shift+Enter 换行…"></textarea>
+        <button class="btn primary" id="send-btn">发送</button>
+      </div>
+      <div class="hint" id="mic-hint">语音输入：点麦克风开始，说完停顿约 0.8 秒自动发送</div>
+    </div>
+  </section>
+
+  <!-- ============ 记忆 ============ -->
+  <section class="tab-page" id="tab-memory">
+    <div class="page-head">
+      <h2>长期记忆 <small id="mem-count"></small></h2>
+      <div class="toolbar">
+        <input id="mem-search" placeholder="语义搜索…">
+        <select id="mem-kind">
+          <option value="">全部类型</option>
+          <option value="profile">档案 profile</option>
+          <option value="fact">事实 fact</option>
+          <option value="preference">偏好 preference</option>
+          <option value="event">事件 event</option>
+        </select>
+        <button class="btn" id="mem-add">＋ 新增</button>
+        <button class="btn ghost" id="mem-reembed" title="更换嵌入模型后需要重算">重算向量</button>
+        <button class="btn ghost" id="mem-refresh">刷新</button>
+      </div>
+    </div>
+    <div class="memory-list" id="memory-list"></div>
+  </section>
+
+  <!-- ============ Live2D ============ -->
+  <section class="tab-page" id="tab-live2d">
+    <div class="page-head">
+      <h2>Live2D 形象</h2>
+      <div class="toolbar">
+        <label class="inline">渲染方式
+          <select id="l2d-backend">
+            <option value="native">native（自带渲染）</option>
+            <option value="vtube">VTube Studio</option>
+          </select>
+        </label>
+        <button class="btn ghost" id="l2d-refresh">刷新列表</button>
+      </div>
+    </div>
+    <div class="l2d-grid" id="l2d-grid"></div>
+    <h3 class="sub">桌宠选项</h3>
+    <div class="cards" id="pet-options"></div>
+  </section>
+</main>
+
+<div class="toast-box" id="toast-box"></div>
+<script src="/static/app.js?v=7"></script>
+</body>
+</html>
